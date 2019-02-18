@@ -10,3 +10,7 @@ metadata:
 data:
   config.yml: |-
 {{ toYaml .Values.configData | indent 4 }}
+{{- if .Values.auth.rootcertbundledata }}
+  rootcert.pem: |
+{{ .Values.auth.rootcertbundledata | indent 4 }}
+{{- end }}
